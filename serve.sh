@@ -1,0 +1,1 @@
+python -m http.server 8080 --directory main.html --bind 0.0.0.0
