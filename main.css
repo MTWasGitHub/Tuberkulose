@@ -1,3 +1,5 @@
+
+
 body {
     margin: 0;
     background-color: black;
@@ -93,10 +95,10 @@ dialog[open] {
 }
 @keyframes myFadeIn {
     from {
-      opacity: 0;
+        opacity: 0;
     }
     to {
-      opacity: 1;
+        opacity: 1;
     }
 }
 
@@ -124,4 +126,15 @@ dialog img {
     flex: 40%;
     vertical-align: middle;
     margin: 0.5em;
+}
+
+@media (pointer:none), (pointer:coarse) {
+    dialog {
+        width: calc(100% - 10px);
+        min-width: 100%;
+        padding: 0;
+    }
+    button {
+        font-size: 3em;
+    }
 }
