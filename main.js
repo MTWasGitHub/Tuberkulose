@@ -162,6 +162,21 @@ class MedsItem extends Item {
     }
 }
 
+class QuellenItem extends Item {
+    dialog = $("#dialog-quellen");
+    closeDialog = $("#close-dialog-quellen");
+    constructor() {
+        super("quellen", 242, 1085);
+        this.el.src = "res/1/items/quellen.png";
+        this.el.addEventListener("click", event => {
+            this.dialog.showModal();
+        });
+        this.closeDialog.onclick = event => {
+            this.dialog.close();
+        };
+    }
+}
+
 class Exit1Item extends ExitItem {
     constructor() {
         super("exit1", 393, 281); //526, 288
@@ -340,6 +355,7 @@ const pages = {
             new BrochureItem(),
             new PatientItem(),
             new MedsItem(),
+            new QuellenItem(),
             new Exit1Item()
         ]
     },
@@ -486,7 +502,6 @@ function hasThingAsParent(element, decide) {
 };
 
 window.addEventListener("wheel", event => {
-    //console.log(event.target, hasThingAsParent(event.target, el => el.tagName === "DIALOG"));
     if(hasThingAsParent(event.target, el => el.tagName === "DIALOG")) return;
     event.preventDefault();
     const delta = event.deltaX + event.deltaY;
